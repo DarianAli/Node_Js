@@ -55,5 +55,28 @@ app.get("/profil/:name/:age", (req,res) => {
     // memberikan response dengan format JSON yang berisi objek di atas
     res.json(response)
 })
+
+// endpoint "/bujur_sangkar" dengan method POST
+
+app.post("/bujur_sangkar", (req,res)=> {
+    // menampung data yang dikirim dan mongkonversi menjadi tipe numerik
+    let panjang = Number(req.body.panjang) //menggambil nilai panjang dari body
+
+    let lebar = Number(req.body.lebar) //mengambil nilai lebar dari body
+
+    let luas = panjang * lebar
+    let keliling = 2 * (panjang + lebar)
+
+    //membuat objek berisi data yang akan dijadikan reponse
+    let response = {
+        panjang : panjang,
+        lebar : lebar,
+        luas : luas,
+        keliling : keliling
+    }
+
+    //memberi response dengan format JSON yang berisi objek di atas
+    res.json(response)
+})
    
 
