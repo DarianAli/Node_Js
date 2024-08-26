@@ -6,7 +6,7 @@ const app = express()
 
 // import controller
 const PraktikumController = require (`./controller/PraktikumControllers`)
-const controller = require (`./controller/controller-S1`)
+const controllerS1 = require (`./controller/controller-S1`)
 const controllerS2 = require (`./controller/controller-S2`)
 const controllerS3 = require (`./controller/controller-S3`)
 const controllerS4 = require (`./controller/controller-S4`)
@@ -22,17 +22,17 @@ app.use(cors())
 
 // import routes
 const praktikum = require (`./routes/PraktikumRoute`)
-const S1 = require (`./routes/route-S1`)
+const S1 = require ('./routes/route-S1')
 const S2 = require (`./routes/route-S2`)
 const S3 = require (`./routes/route-S3`)
 const S4 = require (`./routes/reoute-S4`)
 
 // implementasi routes
-app.use(`./basic_nodejs`, praktikum)
-app.use(`./basic_nodejs`, S1)
-app.use(`./basic_nodejs`, S2)
-app.use(`./basic_nodejs`, S3)
-app.use(`./basic_nodejs`, S4)
+app.use("/praktikum", praktikum)
+app.use("/s1", S1)
+app.use("/s2", S2)
+app.use("/s3", S3)
+app.use("/s4", S4)
 
 
 // test
@@ -41,25 +41,25 @@ app.get("/profil/:name/:age", PraktikumController.profil)
 app.post("/bujurSangkar", PraktikumController.bujurSangkar)
 
 // S1
-app.post("/kubus", controller.kubus)
-app.post("/balok", controller.balok)
-app.post("/tabung", controller.tabung)
-app.post("/bola", controller.bola)
+app.post("/kubus", controllerS1.kubus)
+// app.post("/balok", controller.balok)
+// app.post("/tabung", controller.tabung)
+// app.post("/bola", controller.bola)
 
 // S2
-app.get("/celcius/:celcius", controllerS2.celcius)
-app.get("/reamur/:reamur", controllerS2.reamur)
-app.get("/fahrenheit/:fahrenheit", controllerS2.fahrenheit)
-app.get("/kelvin/:kelvin", controllerS2.kelvin)
+// app.get("/celcius/:celcius", controllerS2.celcius)
+// app.get("/reamur/:reamur", controllerS2.reamur)
+// app.get("/fahrenheit/:fahrenheit", controllerS2.fahrenheit)
+// app.get("/kelvin/:kelvin", controllerS2.kelvin)
 
 // S3
-app.get("/desimal/:bDesimal", controllerS3.desimal)
-app.get("/biner/:bBiner", controllerS3.biner)
-app.get("/octal/:bOktal", controllerS3.octal)
-app.get("/hexa/:bHexa", controllerS3.hexa)
+// app.get("/desimal/:bDesimal", controllerS3.desimal)
+// app.get("/biner/:bBiner", controllerS3.biner)
+// app.get("/octal/:bOktal", controllerS3.octal)
+// app.get("/hexa/:bHexa", controllerS3.hexa)
 
 // S4
-app.post("/bmi", controllerS4.bmi)
+// app.post("/bmi", controllerS4.bmi)
 
 
 app.listen(4000, () => {

@@ -1,4 +1,4 @@
-// KUBUS
+ // KUBUS
 
 exports.kubus = (req, res) => {
     let sisi = Number(req.body.sisi)
